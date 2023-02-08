@@ -36,3 +36,4 @@ lerna-debug.log*
 
 requests/http-client.env.json
 db/data
+.env
