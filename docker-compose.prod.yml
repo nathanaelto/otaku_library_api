@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile-prod
     container_name: app
     restart: always
     env_file:
