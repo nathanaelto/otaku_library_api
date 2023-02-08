@@ -1,0 +1,3 @@
+### Get me
+GET http://localhost:3000/users/me
+Authorization: {{token}}
