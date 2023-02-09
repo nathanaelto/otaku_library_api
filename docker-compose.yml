@@ -27,7 +27,7 @@ services:
       MONGO_PASSWORD: ${MONGO_PASSWORD}
     restart: always
     volumes:
+      - "./db/init/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro"
       - "./db/data/db-files:/data/db"
-      - "./db/init/:/docker-entrypoint-initdb.d/"
     ports:
       - 27017:27017
