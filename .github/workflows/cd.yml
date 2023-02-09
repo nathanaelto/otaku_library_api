@@ -16,7 +16,7 @@ jobs:
               key: ${{ secrets.PRIVATE_KEY }}
               port: 22
               script: |
-                cd backend-api
+                cd otaku_library_api
                 git pull
                 docker-compose -f docker-compose.prod.yml down
                 docker-compose -f docker-compose.prod.yml build
