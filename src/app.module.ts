@@ -6,9 +6,10 @@ import { TokenModule } from './token/token.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
+import { ChaptersModule } from './chapters/chapters.module';
 
 @Module({
-  imports: [TokenModule, UsersModule, AuthModule],
+  imports: [TokenModule, UsersModule, AuthModule, ChaptersModule],
   controllers: [AppController],
   providers: [
     AppService,
