@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile-prod
     container_name: app
     restart: always
     env_file:
@@ -13,7 +13,6 @@ services:
     volumes:
       - '.:/app'
       - '/app/node_modules'
-      - './storage:/app/storage'
 
   db:
     image: mongo:4.4
