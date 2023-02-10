@@ -1,0 +1,27 @@
+### Create book
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "One piece",
+  "image": "img:data//base64",
+  "synopsis": "Luffy is a pirate"
+}
+
+### Get all books
+GET http://localhost:3000/books
+Content-Type: application/json
+Authorization: {{token}}
+
+### Get book by id
+GET http://localhost:3000/books/63e6789f2d4eb440a48f50db
+Content-Type: application/json
+Authorization: {{token}}
+
+
+### Get book with chapters
+GET http://localhost:3000/books/63e6789f2d4eb440a48f50db/chapters
+Content-Type: application/json
+Authorization: {{token}}
+
+

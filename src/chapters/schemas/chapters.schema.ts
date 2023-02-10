@@ -1,6 +1,7 @@
 import { Schema } from 'mongoose';
+import { IChapters } from '../interfaces/chapters.interface';
 
-export const ChapterSchema = new Schema(
+export const ChaptersSchema = new Schema<IChapters>(
   {
     title: {
       type: String,
@@ -13,6 +14,10 @@ export const ChapterSchema = new Schema(
     chapterNumber: {
       type: Number,
       required: [true, 'Chapter number can not be empty'],
+    },
+    bookId: {
+      type: String,
+      required: [true, 'Book id can not be empty'],
     },
   },
   {

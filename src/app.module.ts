@@ -7,9 +7,10 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { ChaptersModule } from './chapters/chapters.module';
+import { BooksModule } from './books/books.module';
 
 @Module({
-  imports: [TokenModule, UsersModule, AuthModule, ChaptersModule],
+  imports: [TokenModule, UsersModule, AuthModule, ChaptersModule, BooksModule],
   controllers: [AppController],
   providers: [
     AppService,

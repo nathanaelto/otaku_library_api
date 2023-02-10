@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ChaptersService } from './chapters.service';
 import { ChaptersController } from './chapters.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ChapterSchema } from './schemas/chapter.schema';
+import { ChaptersSchema } from './schemas/chapters.schema';
 
 @Module({
   imports: [
@@ -13,8 +13,8 @@ import { ChapterSchema } from './schemas/chapter.schema';
     }),
     MongooseModule.forFeature([
       {
-        name: 'Chapter',
-        schema: ChapterSchema,
+        name: 'Chapters',
+        schema: ChaptersSchema,
       },
     ]),
   ],
