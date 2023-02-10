@@ -20,9 +20,11 @@ import { IAuthorizedRequest } from '../utils/authorized-request.interface';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @ApiCreatedResponse({ type: UserDto })
+  @ApiCreatedResponse({ type: LoginResponseDto })
   @Post('register')
-  public async register(@Body() registerDto: RegisterDto): Promise<UserDto> {
+  public async register(
+    @Body() registerDto: RegisterDto,
+  ): Promise<LoginResponseDto> {
     return await this.authService.register(registerDto);
   }
 

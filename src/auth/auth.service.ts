@@ -14,7 +14,7 @@ export class AuthService {
     private readonly userService: UsersService,
   ) {}
 
-  async register(registerDto: RegisterDto): Promise<UserDto> {
+  async register(registerDto: RegisterDto): Promise<LoginResponseDto> {
     const emailExists = await this.userService.checkEmail(registerDto.email);
     if (emailExists) {
       throw new HttpException(
@@ -34,7 +34,17 @@ export class AuthService {
         500,
       );
     }
-    return new UserDto(user);
+    try {
+      const token = await this.tokenService.createToken(user._id);
+      return new LoginResponseDto(token.token);
+    } catch (e) {
+      throw new HttpException(
+        {
+          message: 'token_not_created',
+        },
+        500,
+      );
+    }
   }
 
   async login(loginDto: LoginDto): Promise<LoginResponseDto> {
