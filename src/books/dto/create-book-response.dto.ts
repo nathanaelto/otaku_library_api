@@ -21,4 +21,9 @@ export class CreateBookResponseDto {
   @IsNotEmpty()
   @ApiProperty()
   synopsis: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  author: string;
 }

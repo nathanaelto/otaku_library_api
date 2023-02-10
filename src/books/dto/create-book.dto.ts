@@ -16,4 +16,9 @@ export class CreateBookDto {
   @IsNotEmpty()
   @ApiProperty()
   synopsis: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  author: string;
 }

@@ -24,6 +24,7 @@ export class BooksService {
     return {
       id: book._id,
       title: book.title,
+      author: book.author,
       image: book.image,
       synopsis: book.synopsis,
     };

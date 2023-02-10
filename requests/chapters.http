@@ -6,16 +6,16 @@ Content-Type: application/json
   "title": "Je deviendrais le roi des pirates !",
   "path": "one-piece/chapter_1.cbz",
   "chapterNumber": 1,
-  "bookId": "63e6789f2d4eb440a48f50db"
+  "bookId": "63e6a08b189c419450055192"
 }
 
 ### Get chapter
-GET http://localhost:3000/chapters/63e67b089de2f08399f859a9
+GET http://localhost:3000/chapters/63e6a0aa189c41945005519e
 Content-Type: application/json
 Authorization: {{token}}
 
 
 ### Get chapter buffer
-GET http://localhost:3000/chapters/63e67b089de2f08399f859a9/buffer
+GET http://localhost:3000/chapters/63e6a0aa189c41945005519e/buffer
 Content-Type: application/cbz
 Authorization: {{token}}

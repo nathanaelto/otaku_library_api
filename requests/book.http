@@ -5,7 +5,8 @@ Content-Type: application/json
 {
   "title": "One piece",
   "image": "img:data//base64",
-  "synopsis": "Luffy is a pirate"
+  "synopsis": "Luffy is a pirate",
+  "author": "Eiichiro Oda"
 }
 
 ### Get all books
@@ -14,13 +15,13 @@ Content-Type: application/json
 Authorization: {{token}}
 
 ### Get book by id
-GET http://localhost:3000/books/63e6789f2d4eb440a48f50db
+GET http://localhost:3000/books/63e6a08b189c419450055192
 Content-Type: application/json
 Authorization: {{token}}
 
 
 ### Get book with chapters
-GET http://localhost:3000/books/63e6789f2d4eb440a48f50db/chapters
+GET http://localhost:3000/books/63e6a08b189c419450055192/chapters
 Content-Type: application/json
 Authorization: {{token}}
 

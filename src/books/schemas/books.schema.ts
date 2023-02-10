@@ -15,6 +15,10 @@ export const BooksSchema = new Schema<IBooks>(
       type: String,
       required: [true, 'Synopsis can not be empty'],
     },
+    author: {
+      type: String,
+      required: [true, 'Author can not be empty'],
+    },
   },
   {
     _id: true,
