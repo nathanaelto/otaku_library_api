@@ -8,9 +8,15 @@ import { CreateBookResponseDto } from './dto/create-book-response.dto';
 import { GetBookChapterResponseDto } from './dto/get-book-chapter-response.dto';
 import { GetBookChapterDto } from './dto/get-book-chapter.dto';
 import { GetBookByIdDto } from './dto/get-book-by-id.dto';
+import { join } from 'path';
+import process from 'process';
+import { readFileSync } from 'fs';
+import * as Buffer from 'buffer';
+import { GetBookImageDto } from '../chapters/dto/get-book-image.dto';
 
 @Injectable()
 export class BooksService {
+  private storagePath = join(process.cwd(), 'storage');
   constructor(
     @InjectModel('Books') private readonly booksModel: Model<IBooks>,
     private readonly chaptersService: ChaptersService,
@@ -62,6 +68,23 @@ export class BooksService {
     return new GetBookChapterResponseDto(
       book,
       chapters.sort((a, b) => a.chapterNumber - b.chapterNumber),
+    );
+  }
+
+  async getBookImage(getBookByIdDto: GetBookByIdDto): Promise<GetBookImageDto> {
+    const book = await this.getBookById(getBookByIdDto);
+    if (!book) {
+      throw new HttpException(
+        {
+          message: 'Book not found',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    const imagePath = join(this.storagePath, book.image);
+    return new GetBookImageDto(
+      book.image.split('/').pop(),
+      readFileSync(imagePath),
     );
   }
 }

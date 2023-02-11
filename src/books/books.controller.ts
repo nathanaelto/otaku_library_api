@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';
@@ -8,6 +8,7 @@ import { IBooks } from './interfaces/books.interface';
 import { GetBookByIdDto } from './dto/get-book-by-id.dto';
 import { GetBookChapterDto } from './dto/get-book-chapter.dto';
 import { GetBookChapterResponseDto } from './dto/get-book-chapter-response.dto';
+import { Response } from 'express';
 
 @ApiTags('Books')
 @Controller('books')
@@ -45,5 +46,21 @@ export class BooksController {
     @Param() getBookChaptersDto: GetBookChapterDto,
   ): Promise<GetBookChapterResponseDto> {
     return await this.booksService.getBookChapters(getBookChaptersDto);
+  }
+
+  @ApiOkResponse()
+  @Authorization(true)
+  @Get(':id/image')
+  async getBookImage(
+    @Param() getBookByIdDto: GetBookByIdDto,
+    @Res() res: Response,
+  ) {
+    const { fileName, buffer } = await this.booksService.getBookImage(
+      getBookByIdDto,
+    );
+    const extension = fileName.split('.').pop();
+    res.contentType(`image/${extension}`);
+    res.attachment(fileName);
+    res.send(buffer);
   }
 }

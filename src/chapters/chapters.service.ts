@@ -12,7 +12,7 @@ import { CreateChapterDto } from './dto/create-chapter.dto';
 
 @Injectable()
 export class ChaptersService {
-  private path = join(process.cwd(), 'storage');
+  private storagePath = join(process.cwd(), 'storage');
 
   constructor(
     @InjectModel('Chapters') private readonly chaptersModel: Model<IChapters>,
@@ -23,7 +23,7 @@ export class ChaptersService {
     return createdChapter.save();
   }
   async getChapter(): Promise<Buffer> {
-    const filePath = join(this.path, 'Chapitre_4.cbz');
+    const filePath = join(this.storagePath, 'Chapitre_4.cbz');
     return readFileSync(filePath);
   }
 
@@ -47,7 +47,7 @@ export class ChaptersService {
         HttpStatus.NOT_FOUND,
       );
     }
-    const filePath = join(this.path, chapter.path);
+    const filePath = join(this.storagePath, chapter.path);
     return readFileSync(filePath);
   }
 }
