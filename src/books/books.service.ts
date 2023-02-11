@@ -9,9 +9,8 @@ import { GetBookChapterResponseDto } from './dto/get-book-chapter-response.dto';
 import { GetBookChapterDto } from './dto/get-book-chapter.dto';
 import { GetBookByIdDto } from './dto/get-book-by-id.dto';
 import { join } from 'path';
-import process from 'process';
+import * as process from 'process';
 import { readFileSync } from 'fs';
-import * as Buffer from 'buffer';
 import { GetBookImageDto } from '../chapters/dto/get-book-image.dto';
 
 @Injectable()
