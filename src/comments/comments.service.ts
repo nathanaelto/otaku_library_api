@@ -16,8 +16,9 @@ export class CommentsService {
     comment: CreateCommentDto,
     user: IUser,
   ): Promise<CommentDto> {
-    const newComment = new this.commentModel(comment);
-    newComment.author = user.pseudo;
+    const newComment = new this.commentModel(
+      Object.assign(comment, { author: user.pseudo }),
+    );
     await newComment.save();
     return new CommentDto(newComment);
   }
