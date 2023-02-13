@@ -1,7 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { TokenService } from '../token/token.service';
 import { RegisterDto } from './dto/register.dto';
-import { UserDto } from '../users/dto/user.dto';
 import { UsersService } from '../users/users.service';
 import { IUser } from '../users/interfaces/user.interface';
 import { LoginDto } from './dto/login.dto';

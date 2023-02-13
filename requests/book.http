@@ -14,6 +14,22 @@ GET http://localhost:3000/books
 Content-Type: application/json
 Authorization: {{token}}
 
+### Get all books on line
+GET http://185.216.26.63:3000/books
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2U3ZmVjNjQ4YzllMzBiZDMzOGY1NTciLCJpYXQiOjE2NzYxNDg0MjIsImV4cCI6MTY3ODc0MDQyMn0.ptdaRigi_fkcxR8twjx00KFOH_1HFffU-2XhvBW0IgE
+
+### Get one books on line
+GET http://185.216.26.63:3000/books/63e7f7c6251279c138b6e7c3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2U3ZmVjNjQ4YzllMzBiZDMzOGY1NTciLCJpYXQiOjE2NzYxNDg0MjIsImV4cCI6MTY3ODc0MDQyMn0.ptdaRigi_fkcxR8twjx00KFOH_1HFffU-2XhvBW0IgE
+
+### Get one image of book on line
+GET http://185.216.26.63:3000/books/63e7f7c6251279c138b6e7c3/image
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2U3ZmVjNjQ4YzllMzBiZDMzOGY1NTciLCJpYXQiOjE2NzYxNDg0MjIsImV4cCI6MTY3ODc0MDQyMn0.ptdaRigi_fkcxR8twjx00KFOH_1HFffU-2XhvBW0IgE
+
+
 ### Get book by id
 GET http://localhost:3000/books/63e6a08b189c419450055192
 Content-Type: application/json

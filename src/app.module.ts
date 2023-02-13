@@ -8,9 +8,23 @@ import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { ChaptersModule } from './chapters/chapters.module';
 import { BooksModule } from './books/books.module';
+import { CommentsModule } from './comments/comments.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [TokenModule, UsersModule, AuthModule, ChaptersModule, BooksModule],
+  imports: [
+    MongooseModule.forRootAsync({
+      useFactory: () => ({
+        uri: process.env.MONGO_DSN,
+      }),
+    }),
+    TokenModule,
+    UsersModule,
+    AuthModule,
+    ChaptersModule,
+    BooksModule,
+    CommentsModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,

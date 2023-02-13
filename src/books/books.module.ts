@@ -7,11 +7,6 @@ import { ChaptersModule } from '../chapters/chapters.module';
 
 @Module({
   imports: [
-    MongooseModule.forRootAsync({
-      useFactory: () => ({
-        uri: process.env.MONGO_DSN,
-      }),
-    }),
     MongooseModule.forFeature([
       {
         name: 'Books',

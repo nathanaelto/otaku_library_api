@@ -7,11 +7,6 @@ import { TokenModule } from '../token/token.module';
 
 @Module({
   imports: [
-    MongooseModule.forRootAsync({
-      useFactory: () => ({
-        uri: process.env.MONGO_DSN,
-      }),
-    }),
     MongooseModule.forFeature([
       {
         name: 'User',
